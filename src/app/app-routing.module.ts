@@ -8,7 +8,7 @@ import { ExtractPage } from './pages/extract-page/extract-page.component';
 const routes: Routes = [
   {
     path: '',
-    component: AccountRegisterPage,
+    component: ExtractPage,
   },
   {
     path: 'transfer',
@@ -19,8 +19,8 @@ const routes: Routes = [
     component: DepositPage,
   },
   {
-    path: 'extract',
-    component: ExtractPage,
+    path: 'register',
+    component: AccountRegisterPage,
   },
 ];
 
