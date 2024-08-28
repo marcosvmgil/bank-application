@@ -11,7 +11,7 @@ export class HeaderComponent {
   protected routes = [
     {
       path: '',
-      page: 'Cadastro',
+      page: 'Consulta Extrato',
     },
     {
       path: 'transfer',
@@ -24,8 +24,8 @@ export class HeaderComponent {
     },
 
     {
-      path: 'extract',
-      page: 'Consulta Extrato',
+      path: 'register',
+      page: 'Cadastro',
     },
   ];
 

@@ -6,6 +6,9 @@ import { DepositComponent } from './deposit/deposit.component';
 import { HeaderComponent } from './header/header.component';
 import { ExtractComponent } from './extract/extract.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -14,7 +17,7 @@ import { ExtractComponent } from './extract/extract.component';
     DepositComponent,
     ExtractComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   exports: [
     HeaderComponent,
     AccountRegisterComponent,

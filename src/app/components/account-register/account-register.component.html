@@ -1,1 +1,25 @@
-<p>account-register works!</p>
+<div class="register__cotainer col-4">
+  <div class="register__content col-2">
+    <div class="register__form">
+      <form [formGroup]="checkoutForm" (ngSubmit)="submmit()">
+        <div class="register__formInputAccountNumber">
+          <label for="accountNumber"> Account Number </label>
+          <input type="number" formControlName="accountNumber" />
+        </div>
+        <div class="register__formInputName">
+          <label for="clientName"> Client Name </label>
+          <input type="text" formControlName="clientName" />
+        </div>
+        <div class="register__formInputDocument">
+          <label for="documentNumber"> Document Number </label>
+          <input type="number" formControlName="documentNumber" />
+        </div>
+        <div class="register__formInputAddress">
+          <label for="clientAddress"> Client Address </label>
+          <input type="text" formControlName="clientAddress" />
+        </div>
+        <button class="button" type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
