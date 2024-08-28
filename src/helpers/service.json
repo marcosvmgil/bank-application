@@ -1,8 +1,24 @@
 {
-  "accounts": [{
-    "accountNumber": "00001",
-    "accountName": "Lucas Morais",
-    "accountDocument": "00001000026",
-    "accountAddress": "Rua dos bobos, número zero"
-  }]
+  "account": [{
+      "accountNumber": 92838,
+      "clientAddress": "Rua dos bobos, 0",
+      "clientName": "João Lucas",
+      "documentNumber": 20329,
+      "id": "aa18b279-6052-4b7d-ba03-916ae1afd7bf"
+    },
+    {
+      "id": "cf612857-9d2c-4e14-8269-4b851bf3d3c9",
+      "accountNumber": 9283902,
+      "clientName": "Antônio Gabriel",
+      "documentNumber": 98439048,
+      "clientAddress": "Rua dos bobos, 1"
+    },
+    {
+      "id": "c17cc567-a8ce-44a2-a572-c4d193db23b0",
+      "accountNumber": 93087489,
+      "clientName": "Maria Eduarda",
+      "documentNumber": null,
+      "clientAddress": "Rua dos bobos, 2"
+    }
+  ]
 }
