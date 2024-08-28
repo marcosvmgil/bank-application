@@ -19,7 +19,7 @@ const routes: Routes = [
     component: DepositPage,
   },
   {
-    path: 'exctract',
+    path: 'extract',
     component: ExtractPage,
   },
 ];
