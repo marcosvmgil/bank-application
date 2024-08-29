@@ -70,7 +70,7 @@ export class TransferComponent {
       this.accountProvider.get(idCredit).subscribe(
         (res: any) => {
           this.creditAccount = res[0];
-          this.sendAmoutChange(this.creditAccount, 'Add');
+          this.sendAmoutToChange(this.creditAccount, 'Add');
         },
         (err: any) => {
           //TODO tratativa de erro
@@ -79,7 +79,7 @@ export class TransferComponent {
       this.accountProvider.get(idDebit).subscribe(
         (res: any) => {
           this.debitAccount = res[0];
-          this.sendAmoutChange(this.debitAccount, 'Remove');
+          this.sendAmoutToChange(this.debitAccount, 'Remove');
         },
         (err: any) => {
           //TODO tratativa de erro
@@ -88,7 +88,7 @@ export class TransferComponent {
     } catch (error) {}
   }
 
-  sendAmoutChange(account: Account, operation: string) {
+  sendAmoutToChange(account: Account, operation: string) {
     if (typeof this.transferForm.value.amount === 'string') {
       if (operation === 'Add') {
         account.amount =
@@ -121,7 +121,11 @@ export class TransferComponent {
       id: uuid(),
     };
     this.transactionProvider.post(transaction).subscribe(
-      (res: any) => {},
+      (res: any) => {
+        this.selectedCreditClient = undefined;
+        this.selectedDebitClient = undefined;
+        this.transferForm.reset();
+      },
       (err: any) => {}
     );
 

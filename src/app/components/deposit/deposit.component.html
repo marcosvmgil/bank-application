@@ -1,1 +1,44 @@
-<p>deposit works!</p>
+<div class="deposit__container col-12">
+  <div class="deposit__content col-4">
+    <div class="deposit__inputForm">
+      <form [formGroup]="depositForm" (ngSubmit)="submit()">
+        <div class="deposit__inputFormSelection">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {{ selectedClient?.clientName || "Select client" }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a
+                class="dropdown-item"
+                *ngFor="let client of clients"
+                (click)="selectClient(client)"
+              >
+                {{ client.clientName }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="transfer__inputFormAmount input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Amount to deposit"
+            formControlName="amount"
+          />
+        </div>
+        <div class="deposit__inputFormSubmit">
+          <button type="submit" class="btn btn-success">Deposit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
