@@ -17,7 +17,6 @@ export class AccountRegisterComponent {
     private accountProvider: AccountProvider
   ) {}
 
-  //TODO fazer validação do form no html
   ngOnInit(): void {}
 
   clientForm = this.formBuilder.group({

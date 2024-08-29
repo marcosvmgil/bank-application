@@ -25,7 +25,10 @@ export class ExtractComponent {
   getClients() {
     this.clientProvider.get().subscribe(
       (res: any) => (this.clients = res),
-      (err: any) => console.error(err)
+      (err: any) => {
+        //TODO criar e chamar modal para erro de request
+        console.error(err);
+      }
     );
   }
 
@@ -39,7 +42,9 @@ export class ExtractComponent {
         });
         console.log(res);
       },
-      (err: any) => {}
+      (err: any) => {
+        //TODO criar e chamar modal para erro de request
+      }
     );
   }
 }

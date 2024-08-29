@@ -35,7 +35,10 @@ export class DepositComponent {
   getClients() {
     this.clientProvider.get().subscribe(
       (res: any) => (this.clients = res),
-      (err: any) => console.error(err)
+      (err: any) => {
+        //TODO criar e chamar modal para erro de request
+        console.error(err);
+      }
     );
   }
 
@@ -48,8 +51,10 @@ export class DepositComponent {
   submit() {
     try {
       this.depositAmount();
-    } catch (error) {}
-    //TODO fazer tratamento de erro
+    } catch (error) {
+      //TODO criar e chamar modal para erro de request
+    }
+
     console.log(this.depositForm.value);
   }
 
@@ -63,7 +68,7 @@ export class DepositComponent {
           this.sendAmountTochange(this.account);
         },
         (err: any) => {
-          //TODO tratativa de erro
+          throw new Error('Error fetching account: ' + err.message);
         }
       );
     } catch (error) {}
@@ -82,7 +87,7 @@ export class DepositComponent {
         this.completeTransaction(account);
       },
       (err: any) => {
-        //TODO tratativa de erro
+        throw new Error('Error updating account: ' + err.message);
       }
     );
   }
@@ -104,7 +109,9 @@ export class DepositComponent {
         this.selectedClient = undefined;
         this.depositForm.reset();
       },
-      (err: any) => {}
+      (err: any) => {
+        throw new Error('Error completing transaction: ' + err.message);
+      }
     );
   }
 }

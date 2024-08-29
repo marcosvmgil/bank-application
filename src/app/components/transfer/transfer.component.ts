@@ -40,7 +40,10 @@ export class TransferComponent {
   getClients() {
     this.clientProvider.get().subscribe(
       (res: any) => (this.clients = res),
-      (err: any) => console.error(err)
+      (err: any) => {
+        //TODO criar e chamar modal para erro de request
+        console.error(err);
+      }
     );
   }
 
@@ -73,7 +76,7 @@ export class TransferComponent {
           this.sendAmoutToChange(this.creditAccount, 'Add');
         },
         (err: any) => {
-          //TODO tratativa de erro
+          throw new Error('Error fetching credit account: ' + err.message);
         }
       );
       this.accountProvider.get(idDebit).subscribe(
@@ -82,10 +85,12 @@ export class TransferComponent {
           this.sendAmoutToChange(this.debitAccount, 'Remove');
         },
         (err: any) => {
-          //TODO tratativa de erro
+          throw new Error('Error fetching debit account: ' + err.message);
         }
       );
-    } catch (error) {}
+    } catch (error) {
+      //TODO criar e chamar modal para erro de request
+    }
   }
 
   sendAmoutToChange(account: Account, operation: string) {
@@ -108,7 +113,7 @@ export class TransferComponent {
         this.completeTransaction(account, operation);
       },
       (err: any) => {
-        //TODO tratativa de erro
+        throw new Error('Error updating account: ' + err.message);
       }
     );
   }
@@ -130,9 +135,9 @@ export class TransferComponent {
         this.selectedDebitClient = undefined;
         this.transferForm.reset();
       },
-      (err: any) => {}
+      (err: any) => {
+        throw new Error('Error completing transaction: ' + err.message);
+      }
     );
-
-    //TODO enviar os dados para o log de tansferencias
   }
 }
