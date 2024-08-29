@@ -1,7 +1,7 @@
-<div class="register__cotainer col-4">
-  <div class="register__content col-2">
+<div class="register__cotainer col-12">
+  <div class="register__content col-4">
     <div class="register__form">
-      <form [formGroup]="checkoutForm" (ngSubmit)="submmit()">
+      <form [formGroup]="clientForm" (ngSubmit)="submit()">
         <div class="register__formInputAccountNumber">
           <label for="accountNumber"> Account Number </label>
           <input type="number" formControlName="accountNumber" />
@@ -18,7 +18,9 @@
           <label for="clientAddress"> Client Address </label>
           <input type="text" formControlName="clientAddress" />
         </div>
-        <button class="button" type="submit">Enviar</button>
+        <button type="button" class="btn btn-success" type="submit">
+          Transferir
+        </button>
       </form>
     </div>
   </div>
