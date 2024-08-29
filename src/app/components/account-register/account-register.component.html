@@ -3,20 +3,36 @@
     <div class="register__inputForm">
       <form [formGroup]="clientForm" (ngSubmit)="submit()">
         <div class="register__inputFormAccountNumber">
-          <label for="accountNumber"> Account Number </label>
-          <input type="number" formControlName="accountNumber" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Account Number"
+            formControlName="accountNumber"
+          />
         </div>
         <div class="register__inputFormName">
-          <label for="clientName"> Client Name </label>
-          <input type="text" formControlName="clientName" />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Client Name"
+            formControlName="clientName"
+          />
         </div>
         <div class="register__inputFormDocument">
-          <label for="documentNumber"> Document Number </label>
-          <input type="number" formControlName="documentNumber" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Document Number"
+            formControlName="documentNumber"
+          />
         </div>
         <div class="register__inputFormAddress">
-          <label for="clientAddress"> Client Address </label>
-          <input type="text" formControlName="clientAddress" />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Client Address"
+            formControlName="clientAddress"
+          />
         </div>
         <div class="register__inputFormSubmit">
           <button type="button" class="btn btn-success" type="submit">
