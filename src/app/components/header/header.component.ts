@@ -11,21 +11,21 @@ export class HeaderComponent {
   protected routes = [
     {
       path: '',
-      page: 'Consulta Extrato',
+      page: 'Extract Query',
     },
     {
       path: 'transfer',
-      page: 'Transferencias',
+      page: 'Transfers',
     },
 
     {
       path: 'deposit',
-      page: 'Depósito',
+      page: 'Deposits',
     },
 
     {
       path: 'register',
-      page: 'Cadastro',
+      page: 'Register',
     },
   ];
 

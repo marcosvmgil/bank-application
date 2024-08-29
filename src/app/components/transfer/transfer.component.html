@@ -12,7 +12,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                {{ selectedDebitClient?.clientName || "Retirar de" }}
+                {{ selectedDebitClient?.clientName || "Remove from" }}
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a
@@ -34,7 +34,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                {{ selectedCreditClient?.clientName || "Colocar em" }}
+                {{ selectedCreditClient?.clientName || "Put in" }}
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a
@@ -55,12 +55,12 @@
           <input
             type="text"
             class="form-control"
-            placeholder="Valor a ser transferido"
+            placeholder="Value to be transfered"
             formControlName="amount"
           />
         </div>
         <div class="transfer__inputFormSubmit">
-          <button type="submit" class="btn btn-success">Transferir</button>
+          <button type="submit" class="btn btn-success">Transfer</button>
         </div>
       </form>
     </div>
