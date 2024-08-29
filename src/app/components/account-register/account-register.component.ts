@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AccountProvider } from '../../services/providers/account.provider';
+import { ClientProvider } from '../../services/providers/client.provider';
 import { v4 as uuid } from 'uuid';
+import { Client } from '../../interfaces/client';
+import { AccountProvider } from '../../services/providers/account.provider';
 
 @Component({
   selector: 'app-account-register',
@@ -11,34 +13,34 @@ import { v4 as uuid } from 'uuid';
 export class AccountRegisterComponent {
   constructor(
     private formBuilder: FormBuilder,
+    private clientProvider: ClientProvider,
     private accountProvider: AccountProvider
   ) {}
 
   //TODO fazer validação do form no html
-  ngOnInit(): void {
-    // this.getUsers();
-  }
+  ngOnInit(): void {}
 
-  checkoutForm = this.formBuilder.group({
+  clientForm = this.formBuilder.group({
     accountNumber: ['', [Validators.required]],
     clientName: ['', [Validators.required, Validators.minLength(2)]],
     documentNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
     clientAddress: ['', [Validators.required]],
   });
 
-  submmit() {
-    if (this.checkoutForm.valid) {
+  submit() {
+    if (this.clientForm.valid) {
       let body = {
-        accountNumber: this.checkoutForm.value.accountNumber,
-        clientName: this.checkoutForm.value.clientName,
-        documentNumber: this.checkoutForm.value.documentNumber,
-        clientAddress: this.checkoutForm.value.clientAddress,
+        accountNumber: this.clientForm.value.accountNumber,
+        clientName: this.clientForm.value.clientName,
+        documentNumber: this.clientForm.value.documentNumber,
+        clientAddress: this.clientForm.value.clientAddress,
         id: uuid(),
       };
 
-      this.accountProvider.post(body).subscribe(
+      this.clientProvider.post(body).subscribe(
         (res: any) => {
-          this.checkoutForm.reset();
+          this.createAccount(res);
+          this.clientForm.reset();
         },
         (err: any) => {
           //TODO fazer tratativa de erro com modal
@@ -50,29 +52,35 @@ export class AccountRegisterComponent {
       //TODO fazer tratativa de erro com modal
     }
   }
-  // getUsers() {
-  //   this.accountProvider.get().subscribe(
-  //     (res: any) => console.log(res),
-  //     (err: any) => console.error(err)
-  //   );
-  // }
+
+  createAccount(client: Client) {
+    let account = {
+      accountNumber: client.accountNumber,
+      amount: 0,
+      id: uuid(),
+    };
+    this.accountProvider.post(account).subscribe(
+      (res: any) => {},
+      (er: any) => {}
+    );
+  }
 
   generateErrorMessage(): string {
     const errors = [];
 
-    if (this.checkoutForm.controls['accountNumber'].errors) {
+    if (this.clientForm.controls['accountNumber'].errors) {
       errors.push('Account Number is required.');
     }
 
-    if (this.checkoutForm.controls['clientName'].errors) {
+    if (this.clientForm.controls['clientName'].errors) {
       errors.push('Client Name is required.');
     }
 
-    if (this.checkoutForm.controls['documentNumber'].errors) {
+    if (this.clientForm.controls['documentNumber'].errors) {
       errors.push('Document Number is required.');
     }
 
-    if (this.checkoutForm.controls['clientAddress'].errors) {
+    if (this.clientForm.controls['clientAddress'].errors) {
       errors.push('Client Address is required.');
     }
 
