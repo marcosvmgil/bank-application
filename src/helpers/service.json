@@ -1,5 +1,6 @@
 {
-  "account": [{
+  "client": [
+    {
       "accountNumber": 92838,
       "clientAddress": "Rua dos bobos, 0",
       "clientName": "João Lucas",
@@ -19,6 +20,110 @@
       "clientName": "Maria Eduarda",
       "documentNumber": null,
       "clientAddress": "Rua dos bobos, 2"
+    },
+    {
+      "id": "ce492798-2a0a-4398-b000-dd72875e06d6",
+      "accountNumber": 38447389,
+      "clientName": "Lucas Alves",
+      "documentNumber": 3894789,
+      "clientAddress": "Rua dos bobos, 3"
+    },
+    {
+      "id": "b7bdca62-67ef-44c6-93e7-30272ed6bc46",
+      "accountNumber": 223123,
+      "clientName": "João Amaral",
+      "documentNumber": 2763783789847,
+      "clientAddress": "Rua dos bobos, 4"
+    },
+    {
+      "id": "7886abab-8298-4380-83e4-ca4e3b0870d3",
+      "accountNumber": 328,
+      "clientName": "Angelo Neves",
+      "documentNumber": 3864783928,
+      "clientAddress": "Rua dos bobos, 5"
+    }
+  ],
+  "account": [
+    {
+      "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab703",
+      "accountNumber": 328,
+      "amount": 278
+    },
+    {
+      "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab703",
+      "accountNumber": 38447389,
+      "amount": 0
+    }
+  ],
+  "transactions": [
+    {
+      "id": "b5c672e8-1a72-4845-9b6f-cf74c80ecb4c",
+      "date": "2024-08-28T20:19:48.458Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "256f7189-452c-4467-a45e-517395cf1f75",
+      "date": "2024-08-28T20:19:49.785Z",
+      "operation": "Add"
+    },
+    {
+      "id": "f70bca2d-0808-4c7c-bc18-d5553891302b",
+      "date": "2024-08-29T12:34:34.202Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "e8857a1b-99f6-460f-bf7c-7d07181999a8",
+      "amount": 22,
+      "date": "2024-08-29T12:35:40.250Z",
+      "operation": "Add"
+    },
+    {
+      "id": "167a8cce-4979-4448-8896-d206528a3366",
+      "amount": -22,
+      "date": "2024-08-29T12:35:40.253Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "5ee6bd87-0462-4d2a-bd48-29b01486baf8",
+      "accountNumber": 328,
+      "amount": 278,
+      "date": "2024-08-29T12:37:18.264Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "6aae41f6-4376-4ebe-92af-56eceaed348c",
+      "accountNumber": 38447389,
+      "amount": 22,
+      "date": "2024-08-29T12:37:18.267Z",
+      "operation": "Add"
+    },
+    {
+      "id": "c54f7c1d-5913-4c80-bb30-be794e3a83e3",
+      "accountNumber": 38447389,
+      "amount": 22,
+      "date": "2024-08-29T12:39:13.625Z",
+      "operation": "Add"
+    },
+    {
+      "id": "ea81c8c0-ee18-471c-a277-1ff0b3db0cf0",
+      "accountNumber": 328,
+      "amount": 278,
+      "date": "2024-08-29T12:39:13.627Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "96753ec6-1d62-4dac-bdf5-94d8c968784e",
+      "accountNumber": 328,
+      "amount": 278,
+      "date": "2024-08-29T12:40:45.055Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "2d2b849d-d930-4519-b1c5-56b035bc63a6",
+      "accountNumber": 38447389,
+      "amount": 22,
+      "date": "2024-08-29T12:40:45.058Z",
+      "operation": "Add"
     }
   ]
 }

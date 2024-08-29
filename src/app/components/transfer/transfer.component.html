@@ -1,1 +1,65 @@
-<p>transfer works!</p>
+<div class="transfer__container col-12">
+  <div class="transfer__content col-4">
+    <div class="transfer__form">
+      <form [formGroup]="transferForm" (ngSubmit)="submit()">
+        <div class="transfer__formSelection">
+          <div class="transfer__formSelectionRigth">
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {{ selectedDebitClient?.clientName || "Retirar de" }}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a
+                  class="dropdown-item"
+                  *ngFor="let client of clients"
+                  (click)="selectDebitClient(client)"
+                >
+                  {{ client.clientName }}
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="transfer__formSelectionLeft">
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {{ selectedCreditClient?.clientName || "Colocar em" }}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a
+                  class="dropdown-item"
+                  *ngFor="let client of clients"
+                  (click)="selectCreditClient(client)"
+                >
+                  {{ client.clientName }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="transfer__formInputAmount">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Valor a ser transferido"
+            formControlName="amount"
+          />
+        </div>
+        <div class="transfer__formSelectionSubmit">
+          <button type="submit" class="btn btn-success">Transferir</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
