@@ -47,12 +47,12 @@
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab123",
       "accountNumber": 328,
-      "amount": 278
+      "amount": 288
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab1u3",
       "accountNumber": 38447389,
-      "amount": 0
+      "amount": -20
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69abaaa",
@@ -67,17 +67,17 @@
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab100",
       "accountNumber": 92838,
-      "amount": 468
+      "amount": 478
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab101",
       "accountNumber": 9283902,
-      "amount": 10
+      "amount": 30
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab102",
       "accountNumber": 223123,
-      "amount": 288
+      "amount": 268
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab103",
@@ -87,81 +87,52 @@
   ],
   "transactions": [
     {
-      "id": "96753ec6-1d62-4dac-bdf5-94d8c968784e",
-      "accountNumber": 328,
-      "amount": 278,
-      "date": "2024-08-29T12:40:45.055Z",
+      "id": "69cf3ec1-a8f2-43e7-8a1e-07c4a7e0e31e",
+      "accountNumber": 92838,
+      "amountTotal": 468,
+      "amountOperation": 0,
+      "date": "2024-08-29T17:13:44.969Z",
       "operation": "Remove"
     },
     {
-      "id": "2d2b849d-d930-4519-b1c5-56b035bc63a6",
-      "accountNumber": 38447389,
-      "amount": 22,
-      "date": "2024-08-29T12:40:45.058Z",
-      "operation": "Add"
-    },
-    {
-      "id": "f8a694d7-5c74-4bbc-b556-1596c7d335cc",
-      "accountNumber": 92838,
-      "amount": 478,
-      "date": "2024-08-29T14:09:07.545Z",
-      "operation": "Add"
-    },
-    {
-      "id": "cd2556d9-d4ac-430f-9beb-f768148103ac",
-      "accountNumber": 93087489,
-      "amount": 500,
-      "date": "2024-08-29T14:10:16.612Z",
-      "operation": "Add"
-    },
-    {
-      "id": "5bb34223-0edf-4168-bae7-bb935c2f45fa",
-      "accountNumber": 92838,
-      "amount": 488,
-      "date": "2024-08-29T14:16:54.013Z",
-      "operation": "Add"
-    },
-    {
-      "id": "31170973-bd64-411e-a685-0ee18681740f",
+      "id": "d15a26d0-8d1e-407c-b125-57930312ef40",
       "accountNumber": 9283902,
-      "amount": 10,
-      "date": "2024-08-29T14:22:08.369Z",
+      "amountTotal": 30,
+      "amountOperation": 0,
+      "date": "2024-08-29T17:13:44.972Z",
       "operation": "Add"
     },
     {
-      "id": "81f59727-3ff1-4a3d-85f7-a24003894755",
+      "id": "c173738a-936a-4a63-9a9f-52b2d110fa24",
       "accountNumber": 92838,
-      "amount": 478,
-      "date": "2024-08-29T14:22:08.378Z",
-      "operation": "Remove"
-    },
-    {
-      "id": "052138f8-8dfb-4d56-97c7-c12d9b569e86",
-      "accountNumber": 9283902,
-      "amount": 20,
-      "date": "2024-08-29T14:23:06.595Z",
+      "amountTotal": 488,
+      "amountOperation": 0,
+      "date": "2024-08-29T17:13:50.626Z",
       "operation": "Add"
     },
     {
-      "id": "d20c46d4-4128-483b-942c-90315671a370",
-      "accountNumber": 92838,
-      "amount": 468,
-      "date": "2024-08-29T14:23:06.599Z",
-      "operation": "Remove"
-    },
-    {
-      "id": "c713fb29-2a45-4217-a2c5-3131f8e3f737",
+      "id": "d2e98388-838b-4e60-84b9-911c59b9b90b",
       "accountNumber": 223123,
-      "amount": 288,
-      "date": "2024-08-29T14:24:06.783Z",
-      "operation": "Add"
+      "amountTotal": 268,
+      "amountOperation": 0,
+      "date": "2024-08-29T17:13:50.629Z",
+      "operation": "Remove"
     },
     {
-      "id": "e33e9794-9452-4ccd-9bfd-fb69831fca01",
-      "accountNumber": 9283902,
-      "amount": 10,
-      "date": "2024-08-29T14:24:06.792Z",
+      "id": "efbea49c-65b2-4098-8c60-6d68a09d62e9",
+      "accountNumber": 92838,
+      "amountTotal": 478,
+      "amountOperation": 5,
+      "date": "2024-08-29T17:15:43.196Z",
       "operation": "Remove"
+    },
+    {
+      "id": "9d00ecc0-b682-48dc-90e4-7a45534a6760",
+      "accountNumber": 328,
+      "amountTotal": 288,
+      "amountOperation": 5,
+      "date": "2024-08-29T17:15:45.123Z",
+      "operation": "Add"
     }
   ]
 }

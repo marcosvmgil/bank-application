@@ -26,7 +26,7 @@ export class TransferComponent {
   ) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getClients();
   }
 
   protected clients: Client[] = [];
@@ -37,7 +37,7 @@ export class TransferComponent {
     amount: ['', [Validators.required]],
   });
 
-  getUsers() {
+  getClients() {
     this.clientProvider.get().subscribe(
       (res: any) => (this.clients = res),
       (err: any) => console.error(err)
@@ -115,7 +115,11 @@ export class TransferComponent {
   completeTransaction(account: Account, type: string) {
     let transaction: Transaction = {
       accountNumber: account.accountNumber,
-      amount: account.amount,
+      amountTotal: account.amount,
+      amountOperation:
+        typeof this.transferForm.value.amount === 'string'
+          ? parseFloat(this.transferForm.value.amount)
+          : 0,
       date: new Date(),
       operation: type,
       id: uuid(),

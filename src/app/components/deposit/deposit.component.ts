@@ -21,7 +21,7 @@ export class DepositComponent {
     private transactionProvider: TransactionsProvider
   ) {}
   ngOnInit(): void {
-    this.getUsers();
+    this.getClients();
   }
   protected clients: Client[] = [];
   selectedClient: Client | any;
@@ -32,12 +32,13 @@ export class DepositComponent {
     amount: ['', [Validators.required]],
   });
 
-  getUsers() {
+  getClients() {
     this.clientProvider.get().subscribe(
       (res: any) => (this.clients = res),
       (err: any) => console.error(err)
     );
   }
+
   selectClient(client: Client) {
     this.selectedClient = client;
     this.depositForm.patchValue({
@@ -89,7 +90,11 @@ export class DepositComponent {
   completeTransaction(account: Account) {
     let transaction: Transaction = {
       accountNumber: account.accountNumber,
-      amount: account.amount,
+      amountTotal: account.amount,
+      amountOperation:
+        typeof this.depositForm.value.amount === 'string'
+          ? parseFloat(this.depositForm.value.amount)
+          : 0,
       date: new Date(),
       operation: 'Add',
       id: uuid(),
