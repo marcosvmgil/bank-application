@@ -1,5 +1,11 @@
 .extract__container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
   .extract__content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
     .extract__contentWrapper {
       display: flex;
       flex-direction: column;

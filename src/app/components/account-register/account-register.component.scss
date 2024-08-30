@@ -1,5 +1,11 @@
 .register__container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
   .register__content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
     .register__inputFormContainer {
       background-color: #d5d5d5;
       padding: 30px 10px 30px 10px;
@@ -7,6 +13,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 70%;
       .register__inputFormTitle {
         margin-bottom: 30px;
         font-size: x-large;
