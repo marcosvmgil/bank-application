@@ -5,8 +5,8 @@ import { GenericRequestService } from '../generic-request.service';
 @Injectable({
   providedIn: 'root',
 })
-export class TransactionsProvider extends GenericRequestService<any> {
+export class DepositProvider extends GenericRequestService<any> {
   constructor(http: HttpClient) {
-    super('transactions', http);
+    super('deposit', http);
   }
 }

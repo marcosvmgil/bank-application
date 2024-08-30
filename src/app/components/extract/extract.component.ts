@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Client } from 'src/app/interfaces/client';
 import { Transaction } from 'src/app/interfaces/transaction';
 import { ClientProvider } from 'src/app/services/providers/client.provider';
-import { TransactionsProvider } from 'src/app/services/providers/transactions.provider';
+import { ExtractProvider } from 'src/app/services/providers/extract.provider';
 
 @Component({
   selector: 'app-extract',
@@ -12,7 +12,7 @@ import { TransactionsProvider } from 'src/app/services/providers/transactions.pr
 export class ExtractComponent {
   constructor(
     private clientProvider: ClientProvider,
-    private transactionsProvider: TransactionsProvider
+    private extractProvider: ExtractProvider
   ) {}
   ngOnInit(): void {
     this.getClients();
@@ -35,7 +35,7 @@ export class ExtractComponent {
   selectClient(client: Client) {
     let account = { accountNumber: client.accountNumber };
     this.selectedClient = client;
-    this.transactionsProvider.get(account).subscribe(
+    this.extractProvider.get(account).subscribe(
       (res: any) => {
         this.extract = res.sort((a: any, b: any) => {
           return new Date(b.date).getTime() - new Date(a.date).getTime();

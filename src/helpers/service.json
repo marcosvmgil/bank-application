@@ -1,5 +1,6 @@
 {
-  "client": [{
+  "client": [
+    {
       "accountNumber": 92838,
       "clientAddress": "Rua dos bobos, 0",
       "clientName": "João Lucas",
@@ -47,9 +48,17 @@
       "clientName": "Lucas Andrade",
       "documentNumber": 89261783629,
       "clientAddress": "Rua dos bobos, 6"
+    },
+    {
+      "id": "9e32339e-ff96-4680-97f3-5c40410e7014",
+      "accountNumber": 26786378,
+      "clientName": "Igor Vieira",
+      "documentNumber": 7287358,
+      "clientAddress": "Rua dos bobos, 7"
     }
   ],
-  "account": [{
+  "account": [
+    {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab123",
       "accountNumber": 328,
       "amount": 288
@@ -62,7 +71,7 @@
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab100",
       "accountNumber": 92838,
-      "amount": 463
+      "amount": 878
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab101",
@@ -72,7 +81,7 @@
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab102",
       "accountNumber": 223123,
-      "amount": 273
+      "amount": 283
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab103",
@@ -83,9 +92,15 @@
       "id": "cc5368dc-568f-4402-ac31-753a28d5374e",
       "accountNumber": 726783,
       "amount": 450
+    },
+    {
+      "id": "d52548f0-9955-4c50-8a69-8cb3dfb02b51",
+      "accountNumber": 26786378,
+      "amount": 875
     }
   ],
-  "transactions": [{
+  "extract": [
+    {
       "id": "69cf3ec1-a8f2-43e7-8a1e-07c4a7e0e31e",
       "accountNumber": 92838,
       "amountTotal": 468,
@@ -188,6 +203,98 @@
       "amountOperation": 10,
       "date": "2024-08-29T18:24:38.260Z",
       "operation": "Remove"
+    },
+    {
+      "id": "6ba2f8c1-4c41-4e1c-9aab-4d95d2b00b0e",
+      "accountNumber": 92838,
+      "amountTotal": 663,
+      "amountOperation": 200,
+      "date": "2024-08-30T14:16:39.037Z",
+      "operation": "Add"
+    },
+    {
+      "id": "b1b6ed77-1d86-4168-9626-6cc732ed7ca2",
+      "accountNumber": 92838,
+      "amountTotal": 863,
+      "amountOperation": 200,
+      "date": "2024-08-30T14:17:30.702Z",
+      "operation": "Add"
+    },
+    {
+      "id": "ed3e6dc3-b234-4b6f-be60-84a057583918",
+      "accountNumber": 26786378,
+      "amountTotal": 900,
+      "amountOperation": 900,
+      "date": "2024-08-30T14:22:45.841Z",
+      "operation": "Add"
+    },
+    {
+      "id": "db2f1263-b50f-404a-aa5d-6f51c6626499",
+      "accountNumber": 26786378,
+      "amountTotal": 890,
+      "amountOperation": 10,
+      "date": "2024-08-30T14:25:11.209Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "d35cc56c-e5fc-4d0a-af34-2b3676373382",
+      "accountNumber": 223123,
+      "amountTotal": 283,
+      "amountOperation": 10,
+      "date": "2024-08-30T14:25:11.212Z",
+      "operation": "Add"
+    },
+    {
+      "id": "095481b0-8f61-40d2-adb3-053111e2ae98",
+      "accountNumber": 26786378,
+      "amountTotal": 875,
+      "amountOperation": 15,
+      "date": "2024-08-30T14:46:18.653Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "17b21fd7-a2ef-429a-abc6-4fb752f6dbc9",
+      "accountNumber": 92838,
+      "amountTotal": 878,
+      "amountOperation": 15,
+      "date": "2024-08-30T14:46:18.655Z",
+      "operation": "Add"
+    }
+  ],
+  "deposit": [
+    {
+      "id": "b1b6ed77-1d86-4168-9626-6cc732ed7ca2",
+      "accountNumber": 92838,
+      "amountTotal": 863,
+      "amountOperation": 200,
+      "date": "2024-08-30T14:17:30.702Z",
+      "operation": "Add"
+    },
+    {
+      "id": "ed3e6dc3-b234-4b6f-be60-84a057583918",
+      "accountNumber": 26786378,
+      "amountTotal": 900,
+      "amountOperation": 900,
+      "date": "2024-08-30T14:22:45.841Z",
+      "operation": "Add"
+    }
+  ],
+  "transfer": [
+    {
+      "id": "095481b0-8f61-40d2-adb3-053111e2ae98",
+      "accountNumber": 26786378,
+      "amountTotal": 875,
+      "amountOperation": 15,
+      "date": "2024-08-30T14:46:18.653Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "17b21fd7-a2ef-429a-abc6-4fb752f6dbc9",
+      "accountNumber": 92838,
+      "amountTotal": 878,
+      "amountOperation": 15,
+      "date": "2024-08-30T14:46:18.655Z",
+      "operation": "Add"
     }
   ]
 }

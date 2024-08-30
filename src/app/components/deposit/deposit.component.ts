@@ -5,7 +5,8 @@ import { Client } from 'src/app/interfaces/client';
 import { Transaction } from 'src/app/interfaces/transaction';
 import { AccountProvider } from 'src/app/services/providers/account.provider';
 import { ClientProvider } from 'src/app/services/providers/client.provider';
-import { TransactionsProvider } from 'src/app/services/providers/transactions.provider';
+import { DepositProvider } from 'src/app/services/providers/deposit.provider';
+import { ExtractProvider } from 'src/app/services/providers/extract.provider';
 import { v4 as uuid } from 'uuid';
 
 @Component({
@@ -18,7 +19,8 @@ export class DepositComponent {
     private formBuilder: FormBuilder,
     private clientProvider: ClientProvider,
     private accountProvider: AccountProvider,
-    private transactionProvider: TransactionsProvider
+    private extractProvider: ExtractProvider,
+    private depositProvider: DepositProvider
   ) {}
   ngOnInit(): void {
     this.getClients();
@@ -84,7 +86,7 @@ export class DepositComponent {
 
     this.accountProvider.put(account, account.id).subscribe(
       (res: any) => {
-        this.completeTransaction(account);
+        this.completeDeposit(account);
       },
       (err: any) => {
         throw new Error('Error updating account: ' + err.message);
@@ -92,7 +94,20 @@ export class DepositComponent {
     );
   }
 
-  completeTransaction(account: Account) {
+  completeTransaction(transaction: Transaction) {
+    // depositProvider;
+    this.extractProvider.post(transaction).subscribe(
+      (res: any) => {
+        this.selectedClient = undefined;
+        this.depositForm.reset();
+      },
+      (err: any) => {
+        throw new Error('Error completing transaction: ' + err.message);
+      }
+    );
+  }
+
+  completeDeposit(account: Account) {
     let transaction: Transaction = {
       accountNumber: account.accountNumber,
       amountTotal: account.amount,
@@ -104,10 +119,9 @@ export class DepositComponent {
       operation: 'Add',
       id: uuid(),
     };
-    this.transactionProvider.post(transaction).subscribe(
+    this.depositProvider.post(transaction).subscribe(
       (res: any) => {
-        this.selectedClient = undefined;
-        this.depositForm.reset();
+        this.completeTransaction(transaction);
       },
       (err: any) => {
         throw new Error('Error completing transaction: ' + err.message);

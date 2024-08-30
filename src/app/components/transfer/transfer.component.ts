@@ -5,7 +5,8 @@ import { Client } from 'src/app/interfaces/client';
 import { Transaction } from 'src/app/interfaces/transaction';
 import { AccountProvider } from 'src/app/services/providers/account.provider';
 import { ClientProvider } from 'src/app/services/providers/client.provider';
-import { TransactionsProvider } from 'src/app/services/providers/transactions.provider';
+import { ExtractProvider } from 'src/app/services/providers/extract.provider';
+import { TransferProvider } from 'src/app/services/providers/transfer.provider';
 import { v4 as uuid } from 'uuid';
 
 @Component({
@@ -22,7 +23,8 @@ export class TransferComponent {
     private formBuilder: FormBuilder,
     private clientProvider: ClientProvider,
     private accountProvider: AccountProvider,
-    private transactionProvider: TransactionsProvider
+    private extractProvider: ExtractProvider,
+    private transferProvider: TransferProvider
   ) {}
 
   ngOnInit(): void {
@@ -110,14 +112,28 @@ export class TransferComponent {
 
     this.accountProvider.put(account, account.id).subscribe(
       (res: any) => {
-        this.completeTransaction(account, operation);
+        this.completeTransfer(account, operation);
       },
       (err: any) => {
         throw new Error('Error updating account: ' + err.message);
       }
     );
   }
-  completeTransaction(account: Account, type: string) {
+
+  completeTransaction(transaction: Transaction) {
+    this.extractProvider.post(transaction).subscribe(
+      (res: any) => {
+        this.selectedCreditClient = undefined;
+        this.selectedDebitClient = undefined;
+        this.transferForm.reset();
+      },
+      (err: any) => {
+        throw new Error('Error completing transaction: ' + err.message);
+      }
+    );
+  }
+
+  completeTransfer(account: Account, type: string) {
     let transaction: Transaction = {
       accountNumber: account.accountNumber,
       amountTotal: account.amount,
@@ -129,11 +145,9 @@ export class TransferComponent {
       operation: type,
       id: uuid(),
     };
-    this.transactionProvider.post(transaction).subscribe(
+    this.transferProvider.post(transaction).subscribe(
       (res: any) => {
-        this.selectedCreditClient = undefined;
-        this.selectedDebitClient = undefined;
-        this.transferForm.reset();
+        this.completeTransaction(transaction);
       },
       (err: any) => {
         throw new Error('Error completing transaction: ' + err.message);
