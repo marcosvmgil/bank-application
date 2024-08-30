@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Client } from 'src/app/interfaces/client';
 import { Transaction } from 'src/app/interfaces/transaction';
+import { PopupService } from 'src/app/services/popup.service';
 import { ClientProvider } from 'src/app/services/providers/client.provider';
 import { ExtractProvider } from 'src/app/services/providers/extract.provider';
 
@@ -12,7 +13,8 @@ import { ExtractProvider } from 'src/app/services/providers/extract.provider';
 export class ExtractComponent {
   constructor(
     private clientProvider: ClientProvider,
-    private extractProvider: ExtractProvider
+    private extractProvider: ExtractProvider,
+    private popupService: PopupService
   ) {}
   ngOnInit(): void {
     this.getClients();
@@ -26,8 +28,7 @@ export class ExtractComponent {
     this.clientProvider.get().subscribe(
       (res: any) => (this.clients = res),
       (err: any) => {
-        //TODO criar e chamar modal para erro de request
-        console.error(err);
+        this.popupService.showMessage('Error retrieving clients.', false);
       }
     );
   }
@@ -40,10 +41,9 @@ export class ExtractComponent {
         this.extract = res.sort((a: any, b: any) => {
           return new Date(b.date).getTime() - new Date(a.date).getTime();
         });
-        console.log(res);
       },
       (err: any) => {
-        //TODO criar e chamar modal para erro de request
+        this.popupService.showMessage('Error retrieving extract.', false);
       }
     );
   }

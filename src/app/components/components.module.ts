@@ -5,6 +5,7 @@ import { TransferComponent } from './transfer/transfer.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { HeaderComponent } from './header/header.component';
 import { ExtractComponent } from './extract/extract.component';
+import { PopupComponent } from './popup/popup.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     TransferComponent,
     DepositComponent,
     ExtractComponent,
+    PopupComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   exports: [
@@ -24,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     TransferComponent,
     DepositComponent,
     ExtractComponent,
+    PopupComponent,
   ],
 })
 export class ComponentsModule {}

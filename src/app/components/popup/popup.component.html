@@ -1,0 +1,10 @@
+<div
+  *ngIf="message"
+  [ngClass]="{
+    'popup-success': isSuccess,
+    'popup-error': !isSuccess
+  }"
+  class="popup"
+>
+  {{ message }}
+</div>

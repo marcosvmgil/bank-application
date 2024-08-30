@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Account } from 'src/app/interfaces/account';
 import { Client } from 'src/app/interfaces/client';
 import { Transaction } from 'src/app/interfaces/transaction';
+import { PopupService } from 'src/app/services/popup.service';
 import { AccountProvider } from 'src/app/services/providers/account.provider';
 import { ClientProvider } from 'src/app/services/providers/client.provider';
 import { ExtractProvider } from 'src/app/services/providers/extract.provider';
@@ -24,7 +25,8 @@ export class TransferComponent {
     private clientProvider: ClientProvider,
     private accountProvider: AccountProvider,
     private extractProvider: ExtractProvider,
-    private transferProvider: TransferProvider
+    private transferProvider: TransferProvider,
+    private popupService: PopupService
   ) {}
 
   ngOnInit(): void {
@@ -43,8 +45,7 @@ export class TransferComponent {
     this.clientProvider.get().subscribe(
       (res: any) => (this.clients = res),
       (err: any) => {
-        //TODO criar e chamar modal para erro de request
-        console.error(err);
+        this.popupService.showMessage('Error retrieving clients.', false);
       }
     );
   }
@@ -63,8 +64,21 @@ export class TransferComponent {
   }
 
   submit() {
-    console.log(this.transferForm.value);
-    this.transferAmount();
+    if (this.transferForm.valid) {
+      if (
+        this.transferForm.value.accountNumberCredit ==
+        this.transferForm.value.accountNumberDebit
+      ) {
+        this.popupService.showMessage(
+          'You cannot withdraw and send to the same person.',
+          false
+        );
+      } else {
+        this.transferAmount();
+      }
+    } else {
+      this.popupService.showMessage(this.generateErrorMessage(), false);
+    }
   }
 
   transferAmount() {
@@ -91,7 +105,7 @@ export class TransferComponent {
         }
       );
     } catch (error) {
-      //TODO criar e chamar modal para erro de request
+      this.popupService.showMessage('Error performing transfer.', false);
     }
   }
 
@@ -126,6 +140,7 @@ export class TransferComponent {
         this.selectedCreditClient = undefined;
         this.selectedDebitClient = undefined;
         this.transferForm.reset();
+        this.popupService.showMessage('Transfer completed successfully!', true);
       },
       (err: any) => {
         throw new Error('Error completing transaction: ' + err.message);
@@ -153,5 +168,21 @@ export class TransferComponent {
         throw new Error('Error completing transaction: ' + err.message);
       }
     );
+  }
+
+  generateErrorMessage(): string {
+    if (this.transferForm.controls['accountNumberDebit'].errors) {
+      return 'Account Number removing is required.';
+    }
+
+    if (this.transferForm.controls['accountNumberCredit'].errors) {
+      return 'Account Number adding is required.';
+    }
+
+    if (this.transferForm.controls['amount'].errors) {
+      return 'Amount is required.';
+    }
+
+    return '';
   }
 }

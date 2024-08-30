@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Account } from 'src/app/interfaces/account';
 import { Client } from 'src/app/interfaces/client';
 import { Transaction } from 'src/app/interfaces/transaction';
+import { PopupService } from 'src/app/services/popup.service';
 import { AccountProvider } from 'src/app/services/providers/account.provider';
 import { ClientProvider } from 'src/app/services/providers/client.provider';
 import { DepositProvider } from 'src/app/services/providers/deposit.provider';
@@ -20,7 +21,8 @@ export class DepositComponent {
     private clientProvider: ClientProvider,
     private accountProvider: AccountProvider,
     private extractProvider: ExtractProvider,
-    private depositProvider: DepositProvider
+    private depositProvider: DepositProvider,
+    private popupService: PopupService
   ) {}
   ngOnInit(): void {
     this.getClients();
@@ -38,8 +40,7 @@ export class DepositComponent {
     this.clientProvider.get().subscribe(
       (res: any) => (this.clients = res),
       (err: any) => {
-        //TODO criar e chamar modal para erro de request
-        console.error(err);
+        this.popupService.showMessage('Error retrieving clients.', false);
       }
     );
   }
@@ -51,13 +52,15 @@ export class DepositComponent {
     });
   }
   submit() {
-    try {
-      this.depositAmount();
-    } catch (error) {
-      //TODO criar e chamar modal para erro de request
+    if (this.depositForm.valid) {
+      try {
+        this.depositAmount();
+      } catch (error) {
+        this.popupService.showMessage('Error making deposit.', false);
+      }
+    } else {
+      this.popupService.showMessage(this.generateErrorMessage(), false);
     }
-
-    console.log(this.depositForm.value);
   }
 
   depositAmount() {
@@ -95,11 +98,11 @@ export class DepositComponent {
   }
 
   completeTransaction(transaction: Transaction) {
-    // depositProvider;
     this.extractProvider.post(transaction).subscribe(
       (res: any) => {
         this.selectedClient = undefined;
         this.depositForm.reset();
+        this.popupService.showMessage('Deposit made successfully!', true);
       },
       (err: any) => {
         throw new Error('Error completing transaction: ' + err.message);
@@ -127,5 +130,16 @@ export class DepositComponent {
         throw new Error('Error completing transaction: ' + err.message);
       }
     );
+  }
+
+  generateErrorMessage(): string {
+    if (this.depositForm.controls['accountNumber'].errors) {
+      return 'Account Number is required.';
+    }
+
+    if (this.depositForm.controls['amount'].errors) {
+      return 'Client Amount is required.';
+    }
+    return '';
   }
 }

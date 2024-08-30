@@ -4,6 +4,7 @@ import { ClientProvider } from '../../services/providers/client.provider';
 import { v4 as uuid } from 'uuid';
 import { Client } from '../../interfaces/client';
 import { AccountProvider } from '../../services/providers/account.provider';
+import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
   selector: 'app-account-register',
@@ -14,7 +15,8 @@ export class AccountRegisterComponent {
   constructor(
     private formBuilder: FormBuilder,
     private clientProvider: ClientProvider,
-    private accountProvider: AccountProvider
+    private accountProvider: AccountProvider,
+    private popupService: PopupService
   ) {}
 
   ngOnInit(): void {}
@@ -40,15 +42,14 @@ export class AccountRegisterComponent {
         (res: any) => {
           this.createAccount(res);
           this.clientForm.reset();
+          this.popupService.showMessage('Client created successfully!', true);
         },
         (err: any) => {
-          //TODO fazer tratativa de erro com modal
+          this.popupService.showMessage('Error creating a new client', false);
         }
       );
     } else {
-      console.log(this.generateErrorMessage());
-
-      //TODO fazer tratativa de erro com modal
+      this.popupService.showMessage(this.generateErrorMessage(), false);
     }
   }
 
@@ -65,24 +66,22 @@ export class AccountRegisterComponent {
   }
 
   generateErrorMessage(): string {
-    const errors = [];
-
     if (this.clientForm.controls['accountNumber'].errors) {
-      errors.push('Account Number is required.');
+      return 'Account Number is required.';
     }
 
     if (this.clientForm.controls['clientName'].errors) {
-      errors.push('Client Name is required.');
+      return 'Client Name is required.';
     }
 
     if (this.clientForm.controls['documentNumber'].errors) {
-      errors.push('Document Number is required.');
+      return 'Document Number is required.';
     }
 
     if (this.clientForm.controls['clientAddress'].errors) {
-      errors.push('Client Address is required.');
+      return 'Client Address is required.';
     }
 
-    return errors.join(' ');
+    return '';
   }
 }

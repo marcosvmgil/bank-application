@@ -71,12 +71,12 @@
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab100",
       "accountNumber": 92838,
-      "amount": 878
+      "amount": 861
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab101",
       "accountNumber": 9283902,
-      "amount": 30
+      "amount": 32
     },
     {
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab102",
@@ -259,6 +259,70 @@
       "amountOperation": 15,
       "date": "2024-08-30T14:46:18.655Z",
       "operation": "Add"
+    },
+    {
+      "id": "c5f74bec-bcde-49b4-b907-5c5900d5c3f9",
+      "accountNumber": 92838,
+      "amountTotal": 888,
+      "amountOperation": 10,
+      "date": "2024-08-30T15:17:10.321Z",
+      "operation": "Add"
+    },
+    {
+      "id": "c31050b6-e17b-4900-bd66-65eb8db9d936",
+      "accountNumber": 92838,
+      "amountTotal": 868,
+      "amountOperation": 10,
+      "date": "2024-08-30T15:17:10.324Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "1d895dde-5505-4f48-8f3d-52b16a5ff3d2",
+      "accountNumber": 9283902,
+      "amountTotal": 35,
+      "amountOperation": 5,
+      "date": "2024-08-30T15:31:49.078Z",
+      "operation": "Add"
+    },
+    {
+      "id": "7cab8e84-a992-4fda-a468-c40a6ead8744",
+      "accountNumber": 92838,
+      "amountTotal": 863,
+      "amountOperation": 5,
+      "date": "2024-08-30T15:31:49.085Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "44412617-4085-419b-801a-636d859bfde1",
+      "accountNumber": 9283902,
+      "amountTotal": 30,
+      "amountOperation": 5,
+      "date": "2024-08-30T15:33:50.071Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "03514d47-9535-4a0d-be0b-ddca98b4ec42",
+      "accountNumber": 9283902,
+      "amountTotal": 40,
+      "amountOperation": 5,
+      "date": "2024-08-30T15:33:50.073Z",
+      "operation": "Add"
+    },
+    {
+      "id": "f75251c2-7b75-46c1-b7b4-7d387c268c4a",
+      "accountNumber": 9283902,
+      "amountTotal": 32,
+      "amountOperation": 2,
+      "date": "2024-08-30T17:53:14.874Z",
+      "operation": "Add"
+    },
+    {
+      "id": "314ade54-c5bd-4fc5-afdd-6d063744a91f",
+      "accountNumber": 92838,
+      "amountTotal": 861,
+      "amountOperation": 2,
+      "date": "2024-08-30T17:53:14.877Z",
+      "operation": "Remove"
     }
   ],
   "deposit": [
@@ -295,6 +359,70 @@
       "amountOperation": 15,
       "date": "2024-08-30T14:46:18.655Z",
       "operation": "Add"
+    },
+    {
+      "id": "c5f74bec-bcde-49b4-b907-5c5900d5c3f9",
+      "accountNumber": 92838,
+      "amountTotal": 888,
+      "amountOperation": 10,
+      "date": "2024-08-30T15:17:10.321Z",
+      "operation": "Add"
+    },
+    {
+      "id": "c31050b6-e17b-4900-bd66-65eb8db9d936",
+      "accountNumber": 92838,
+      "amountTotal": 868,
+      "amountOperation": 10,
+      "date": "2024-08-30T15:17:10.324Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "1d895dde-5505-4f48-8f3d-52b16a5ff3d2",
+      "accountNumber": 9283902,
+      "amountTotal": 35,
+      "amountOperation": 5,
+      "date": "2024-08-30T15:31:49.078Z",
+      "operation": "Add"
+    },
+    {
+      "id": "7cab8e84-a992-4fda-a468-c40a6ead8744",
+      "accountNumber": 92838,
+      "amountTotal": 863,
+      "amountOperation": 5,
+      "date": "2024-08-30T15:31:49.085Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "44412617-4085-419b-801a-636d859bfde1",
+      "accountNumber": 9283902,
+      "amountTotal": 30,
+      "amountOperation": 5,
+      "date": "2024-08-30T15:33:50.071Z",
+      "operation": "Remove"
+    },
+    {
+      "id": "03514d47-9535-4a0d-be0b-ddca98b4ec42",
+      "accountNumber": 9283902,
+      "amountTotal": 40,
+      "amountOperation": 5,
+      "date": "2024-08-30T15:33:50.073Z",
+      "operation": "Add"
+    },
+    {
+      "id": "f75251c2-7b75-46c1-b7b4-7d387c268c4a",
+      "accountNumber": 9283902,
+      "amountTotal": 32,
+      "amountOperation": 2,
+      "date": "2024-08-30T17:53:14.874Z",
+      "operation": "Add"
+    },
+    {
+      "id": "314ade54-c5bd-4fc5-afdd-6d063744a91f",
+      "accountNumber": 92838,
+      "amountTotal": 861,
+      "amountOperation": 2,
+      "date": "2024-08-30T17:53:14.877Z",
+      "operation": "Remove"
     }
   ]
 }
