@@ -1,62 +1,67 @@
 <div class="extract__container col-12">
   <div class="extract__content col-8">
-    <div class="extract__inputForm">
-      <div class="deposit__inputFormSelection">
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            {{ selectedClient?.clientName || "Select client" }}
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a
-              class="dropdown-item"
-              *ngFor="let client of clients"
-              (click)="selectClient(client)"
+    <div class="extract__contentWrapper">
+      <div class="extract__inputForm">
+        <div class="deposit__inputFormSelection">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
-              {{ client.clientName }}
-            </a>
+              {{ selectedClient?.clientName || "Select client" }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a
+                class="dropdown-item"
+                *ngFor="let client of clients"
+                (click)="selectClient(client)"
+              >
+                {{ client.clientName }}
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="extract__clientTable">
-      <table class="table table-light">
-        <thead>
-          <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Type Transaction</th>
-            <th scope="col">Value</th>
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="let transaction of extract"
-            [ngClass]="
-              transaction.operation == 'Add' ? 'table-success' : 'table-danger'
-            "
-          >
-            <td>{{ transaction.date | date : "HH:mm:ss dd/MM/yyyy" }}</td>
-            <td>{{ transaction.operation }}</td>
-            <td>
-              {{
-                transaction.amountOperation
-                  | currency : "BRL" : "symbol" : "1.2-2"
-              }}
-            </td>
-            <th scope="row">
-              {{
-                transaction.amountTotal | currency : "BRL" : "symbol" : "1.2-2"
-              }}
-            </th>
-          </tr>
-        </tbody>
-      </table>
+      <div class="extract__clientTableContainer">
+        <table class="table table-light extract__clientTable">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Type Transaction</th>
+              <th scope="col">Value</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let transaction of extract"
+              [ngClass]="
+                transaction.operation == 'Add'
+                  ? 'table-success'
+                  : 'table-danger'
+              "
+            >
+              <td>{{ transaction.date | date : "HH:mm:ss dd/MM/yyyy" }}</td>
+              <td>{{ transaction.operation }}</td>
+              <td>
+                {{
+                  transaction.amountOperation
+                    | currency : "BRL" : "symbol" : "1.2-2"
+                }}
+              </td>
+              <th scope="row">
+                {{
+                  transaction.amountTotal
+                    | currency : "BRL" : "symbol" : "1.2-2"
+                }}
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

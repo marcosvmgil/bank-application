@@ -1,35 +1,40 @@
-<div class="register__cotainer col-12">
+<div class="register__container col-12">
   <div class="register__content col-4">
-    <div class="register__inputForm">
-      <form [formGroup]="clientForm" (ngSubmit)="submit()">
-        <div class="register__inputFormAccountNumber">
+    <div class="register__inputFormContainer">
+      <div class="register__inputFormTitle">Add a new client</div>
+      <form
+        [formGroup]="clientForm"
+        (ngSubmit)="submit()"
+        class="register__inputForm"
+      >
+        <div class="register__inputFormBox">
           <input
             type="number"
-            class="form-control"
+            class="form-control register__inputFormAccountNumber"
             placeholder="Account Number"
             formControlName="accountNumber"
           />
         </div>
-        <div class="register__inputFormName">
+        <div class="register__inputFormBox">
           <input
             type="text"
-            class="form-control"
+            class="form-control register__inputFormName"
             placeholder="Client Name"
             formControlName="clientName"
           />
         </div>
-        <div class="register__inputFormDocument">
+        <div class="register__inputFormBox">
           <input
             type="number"
-            class="form-control"
+            class="form-control register__inputFormDocument"
             placeholder="Document Number"
             formControlName="documentNumber"
           />
         </div>
-        <div class="register__inputFormAddress">
+        <div class="register__inputFormBox">
           <input
             type="text"
-            class="form-control"
+            class="form-control register__inputFormAddress"
             placeholder="Client Address"
             formControlName="clientAddress"
           />

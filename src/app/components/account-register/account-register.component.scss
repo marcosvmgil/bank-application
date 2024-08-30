@@ -1,0 +1,36 @@
+.register__container {
+  .register__content {
+    .register__inputFormContainer {
+      background-color: #d5d5d5;
+      padding: 30px 10px 30px 10px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .register__inputFormTitle {
+        margin-bottom: 30px;
+        font-size: x-large;
+      }
+      .register__inputForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .register__inputFormBox {
+          margin-bottom: 10px;
+          .register__inputFormAccountNumber {
+          }
+          .register__inputFormName {
+          }
+          .register__inputFormDocument {
+          }
+          .register__inputFormAddress {
+          }
+        }
+        .register__inputFormSubmit {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

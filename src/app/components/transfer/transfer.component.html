@@ -1,12 +1,17 @@
 <div class="transfer__container col-12">
-  <div class="transfer__content col-4">
-    <div class="transfer__inputForm">
-      <form [formGroup]="transferForm" (ngSubmit)="submit()">
+  <div class="transfer__content col-6">
+    <div class="transfer__inputFormContainer">
+      <div class="transfer__inputFormTitile">Make a transfer</div>
+      <form
+        [formGroup]="transferForm"
+        (ngSubmit)="submit()"
+        class="transfer__inputForm"
+      >
         <div class="transfer__inputFormSelection">
           <div class="transfer__formSelectionRigth">
-            <div class="dropdown">
+            <div class="dropdown transfer__inputFormDropdown">
               <button
-                class="btn btn-secondary dropdown-toggle"
+                class="btn btn-secondary dropdown-toggle transfer__inputFormDropdownBtn"
                 type="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
@@ -14,9 +19,12 @@
               >
                 {{ selectedDebitClient?.clientName || "Remove from" }}
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuButton transfer__inputFormDropdownMenu"
+              >
                 <a
-                  class="dropdown-item"
+                  class="dropdown-item transfer__inputFormDropdownItem"
                   *ngFor="let client of clients"
                   (click)="selectDebitClient(client)"
                 >
@@ -26,19 +34,22 @@
             </div>
           </div>
           <div class="transfer__formSelectionLeft">
-            <div class="dropdown">
+            <div class="dropdown transfer__inputFormDropdown">
               <button
-                class="btn btn-secondary dropdown-toggle"
+                class="btn btn-secondary dropdown-toggle transfer__inputFormDropdownBtn"
                 type="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                {{ selectedCreditClient?.clientName || "Put in" }}
+                {{ selectedCreditClient?.clientName || "Add in" }}
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuButton transfer__inputFormDropdownMenu"
+              >
                 <a
-                  class="dropdown-item"
+                  class="dropdown-item transfer__inputFormDropdownItem"
                   *ngFor="let client of clients"
                   (click)="selectCreditClient(client)"
                 >
@@ -48,7 +59,7 @@
             </div>
           </div>
         </div>
-        <div class="transfer__inputFormAmount input-group mb-3">
+        <div class="input-group mb-3 transfer__inputFormAmount">
           <div class="input-group-prepend">
             <span class="input-group-text">$</span>
           </div>
@@ -60,7 +71,12 @@
           />
         </div>
         <div class="transfer__inputFormSubmit">
-          <button type="submit" class="btn btn-success">Transfer</button>
+          <button
+            type="submit"
+            class="btn btn-success transfer__inputFormButtonSubimit"
+          >
+            Transfer
+          </button>
         </div>
       </form>
     </div>

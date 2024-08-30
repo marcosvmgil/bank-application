@@ -1,0 +1,43 @@
+.deposit__container {
+  .deposit__content {
+    .register__inputFormContainer {
+      background-color: #d5d5d5;
+      padding: 20px 10px 20px 10px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .register__inputFormTitle {
+        margin-bottom: 20px;
+        font-size: x-large;
+      }
+      .register__inputForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .deposit__inputFormSelection {
+          width: 100%;
+          margin-bottom: 10px;
+          .register__inputFormDropdown {
+            width: 100%;
+            .register__inputFormDropdownBtn {
+              width: 100%;
+            }
+            .register__inputFormDropdownMenu {
+              width: 100%;
+
+              .register__inputFormDropdownItem {
+                width: 100%;
+              }
+            }
+          }
+        }
+        .deposit__inputFormAmount {
+          margin-bottom: 10px;
+        }
+        .deposit__inputFormSubmit {
+        }
+      }
+    }
+  }
+}
