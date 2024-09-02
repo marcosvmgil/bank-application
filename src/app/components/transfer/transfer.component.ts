@@ -33,7 +33,7 @@ export class TransferComponent {
     this.getClients();
   }
 
-  protected clients: Client[] = [];
+  clients: Client[] = [];
 
   transferForm = this.formBuilder.group({
     accountNumberDebit: ['', [Validators.required]],

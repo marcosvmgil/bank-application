@@ -27,7 +27,7 @@ export class DepositComponent {
   ngOnInit(): void {
     this.getClients();
   }
-  protected clients: Client[] = [];
+  clients: Client[] = [];
   selectedClient: Client | any;
   account: Account | any;
 
@@ -45,7 +45,7 @@ export class DepositComponent {
     );
   }
 
-  selectClient(client: Client) {
+  selectClient(client: Client): void {
     this.selectedClient = client;
     this.depositForm.patchValue({
       accountNumber: client.accountNumber.toString(),
