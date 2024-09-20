@@ -38,9 +38,13 @@ export class ExtractComponent {
     this.selectedClient = client;
     this.extractProvider.get(account).subscribe(
       (res: any) => {
-        this.extract = res.sort((a: any, b: any) => {
-          return new Date(b.date).getTime() - new Date(a.date).getTime();
-        });
+        if (res.status == 404) {
+          this.extract = [];
+        } else {
+          this.extract = res.sort((a: any, b: any) => {
+            return new Date(b.date).getTime() - new Date(a.date).getTime();
+          });
+        }
       },
       (err: any) => {
         this.popupService.showMessage('Error retrieving extract.', false);
