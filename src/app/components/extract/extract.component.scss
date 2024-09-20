@@ -16,11 +16,34 @@
       border-radius: 10px;
       .extract__inputForm {
         width: 100%;
-        .deposit__inputFormSelection {
+        .extract__inputFormSelection {
           display: flex;
           justify-content: space-around;
           width: 100%;
           margin-bottom: 10px;
+          .extract__inputFormSelectionRight {
+            width: 30%;
+          }
+          .extract__inputFormSelectionCenter {
+          }
+          .extract__inputFormSelectionLeft {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            .extract__inputFormAmountLabel {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+              .extract__inputFormAmountLabelRight {
+                margin-right: 5px;
+              }
+              .extract__inputFormAmountLabelLeft {
+                font-weight: bold;
+              }
+            }
+          }
         }
       }
       .extract__clientTableContainer {

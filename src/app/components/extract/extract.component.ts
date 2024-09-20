@@ -23,6 +23,7 @@ export class ExtractComponent {
   selectedClient: Client | any;
   clients: Client[] | any;
   extract: Transaction[] | any;
+  clientAmount: string | any;
 
   getClients() {
     this.clientProvider.get().subscribe(
@@ -44,6 +45,7 @@ export class ExtractComponent {
           this.extract = res.sort((a: any, b: any) => {
             return new Date(b.date).getTime() - new Date(a.date).getTime();
           });
+          this.clientAmount = this.extract[0].amountTotal;
         }
       },
       (err: any) => {

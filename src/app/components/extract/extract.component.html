@@ -2,8 +2,9 @@
   <div class="extract__content col-8">
     <div class="extract__contentWrapper">
       <div class="extract__inputForm">
-        <div class="deposit__inputFormSelection">
-          <div class="dropdown">
+        <div class="extract__inputFormSelection">
+          <div class="extract__inputFormSelectionRight"></div>
+          <div class="dropdown extract__inputFormSelectionCenter">
             <button
               class="btn btn-secondary dropdown-toggle"
               type="button"
@@ -21,6 +22,19 @@
               >
                 {{ client.clientName }}
               </a>
+            </div>
+          </div>
+          <div class="extract__inputFormSelectionLeft">
+            <div
+              *ngIf="clientAmount != undefined"
+              class="extract__inputFormAmountLabel"
+            >
+              <div class="extract__inputFormAmountLabelRight">
+                Amount Total:
+              </div>
+              <div class="extract__inputFormAmountLabelLeft">
+                {{ clientAmount | currency : "BRL" : "symbol" : "1.2-2" }}
+              </div>
             </div>
           </div>
         </div>
