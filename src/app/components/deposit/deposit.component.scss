@@ -39,6 +39,24 @@
             }
           }
         }
+        .deposit__inputFormOperation {
+          width: 100%;
+          margin-bottom: 10px;
+          .register__inputFormDropdown {
+            width: 100%;
+
+            .register__inputFormDropdownBtn {
+              width: 100%;
+            }
+            .register__inputFormDropdownMenu {
+              width: 100%;
+
+              .register__inputFormDropdownItem {
+                width: 100%;
+              }
+            }
+          }
+        }
         .deposit__inputFormAmount {
           margin-bottom: 10px;
         }

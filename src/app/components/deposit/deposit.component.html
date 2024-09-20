@@ -32,12 +32,38 @@
             </div>
           </div>
         </div>
+        <div class="deposit__inputFormOperation">
+          <div class="dropdown register__inputFormDropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle register__inputFormDropdownBtn"
+              type="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {{ selectedOperation || "Select Operation" }}
+            </button>
+            <div
+              class="dropdown-menu register__inputFormDropdownMenu"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <a
+                *ngFor="let operation of operations"
+                class="dropdown-item register__inputFormDropdownItem"
+                (click)="selectOperation(operation)"
+              >
+                {{ operation }}
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="deposit__inputFormAmount input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">$</span>
           </div>
           <input
-            type="text"
+            type="number"
             class="form-control"
             placeholder="Amount to deposit"
             formControlName="amount"

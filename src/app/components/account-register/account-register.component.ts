@@ -79,7 +79,7 @@ export class AccountRegisterComponent {
     }
 
     if (this.clientForm.controls['clientAddress'].errors) {
-      return 'Client Address is required.';
+      return 'Client E-Mail Address is required.';
     }
 
     return '';

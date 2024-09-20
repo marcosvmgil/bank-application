@@ -30,10 +30,13 @@ export class DepositComponent {
   clients: Client[] = [];
   selectedClient: Client | any;
   account: Account | any;
+  selectedOperation: string | any;
+  operations: string[] = ['Add', 'Remove'];
 
   depositForm = this.formBuilder.group({
     accountNumber: ['', [Validators.required]],
     amount: ['', [Validators.required]],
+    operation: ['', [Validators.required]],
   });
 
   getClients() {
@@ -51,6 +54,14 @@ export class DepositComponent {
       accountNumber: client.accountNumber.toString(),
     });
   }
+
+  selectOperation(operation: string): void {
+    this.selectedOperation = operation;
+    this.depositForm.patchValue({
+      operation: operation,
+    });
+  }
+
   submit() {
     if (this.depositForm.valid) {
       try {
@@ -80,11 +91,18 @@ export class DepositComponent {
   }
 
   sendAmountTochange(account: Account) {
-    if (typeof this.depositForm.value.amount === 'string') {
-      account.amount =
-        account.amount == undefined
-          ? 0 + parseFloat(this.depositForm.value.amount)
-          : account.amount + parseFloat(this.depositForm.value.amount);
+    if (typeof this.depositForm.value.amount === 'number') {
+      if (this.selectedOperation == 'Add') {
+        account.amount =
+          account.amount == undefined
+            ? 0 + parseFloat(this.depositForm.value.amount)
+            : account.amount + parseFloat(this.depositForm.value.amount);
+      } else {
+        account.amount =
+          account.amount == undefined
+            ? 0 - parseFloat(this.depositForm.value.amount)
+            : account.amount - parseFloat(this.depositForm.value.amount);
+      }
     }
 
     this.accountProvider.put(account, account.id).subscribe(
@@ -101,6 +119,7 @@ export class DepositComponent {
     this.extractProvider.post(transaction).subscribe(
       (res: any) => {
         this.selectedClient = undefined;
+        this.selectedOperation = undefined;
         this.depositForm.reset();
         this.popupService.showMessage('Deposit made successfully!', true);
       },
@@ -115,11 +134,11 @@ export class DepositComponent {
       accountNumber: account.accountNumber,
       amountTotal: account.amount,
       amountOperation:
-        typeof this.depositForm.value.amount === 'string'
+        typeof this.depositForm.value.amount === 'number'
           ? parseFloat(this.depositForm.value.amount)
           : 0,
       date: new Date(),
-      operation: 'Add',
+      operation: this.selectedOperation,
       id: uuid(),
     };
     this.depositProvider.post(transaction).subscribe(
@@ -140,6 +159,11 @@ export class DepositComponent {
     if (this.depositForm.controls['amount'].errors) {
       return 'Client Amount is required.';
     }
+
+    if (this.depositForm.controls['operation'].errors) {
+      return 'Operation is required.';
+    }
+
     return '';
   }
 }
