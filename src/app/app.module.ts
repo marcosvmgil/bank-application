@@ -8,6 +8,7 @@ import { AccountRegisterPage } from './pages/account-register-page/account-regis
 import { TransferPage } from './pages/transfer-page/transfer-page.component';
 import { DepositPage } from './pages/deposit-page/deposit-page.component';
 import { ExtractPage } from './pages/extract-page/extract-page.component';
+import { LoginPage } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ExtractPage } from './pages/extract-page/extract-page.component';
     TransferPage,
     DepositPage,
     ExtractPage,
+    LoginPage,
   ],
   imports: [BrowserModule, AppRoutingModule, ComponentsModule],
   providers: [],

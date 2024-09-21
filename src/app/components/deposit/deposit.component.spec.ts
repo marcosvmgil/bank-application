@@ -63,7 +63,7 @@ describe('DepositComponent', () => {
     clientProviderMock.get.and.returnValue(of(mockClients));
 
     component.ngOnInit();
-    fixture.detectChanges(); // Ensure changes are detected after ngOnInit
+    fixture.detectChanges();
 
     expect(clientProviderMock.get).toHaveBeenCalled();
     expect(component.clients).toEqual(mockClients);

@@ -1,6 +1,5 @@
 {
-  "client": [
-    {
+  "client": [{
       "accountNumber": 92838,
       "clientAddress": "Rua dos bobos, 0",
       "clientName": "João Lucas",
@@ -57,8 +56,7 @@
       "clientAddress": "Rua dos bobos, 7"
     }
   ],
-  "account": [
-    {
+  "account": [{
       "id": "6c2a88e2-4d5d-4dd0-ac6b-1bb3d69ab123",
       "accountNumber": 328,
       "amount": 288
@@ -99,8 +97,7 @@
       "amount": 875
     }
   ],
-  "extract": [
-    {
+  "extract": [{
       "id": "69cf3ec1-a8f2-43e7-8a1e-07c4a7e0e31e",
       "accountNumber": 92838,
       "amountTotal": 468,
@@ -325,8 +322,7 @@
       "operation": "Remove"
     }
   ],
-  "deposit": [
-    {
+  "deposit": [{
       "id": "b1b6ed77-1d86-4168-9626-6cc732ed7ca2",
       "accountNumber": 92838,
       "amountTotal": 863,
@@ -343,8 +339,7 @@
       "operation": "Add"
     }
   ],
-  "transfer": [
-    {
+  "transfer": [{
       "id": "095481b0-8f61-40d2-adb3-053111e2ae98",
       "accountNumber": 26786378,
       "amountTotal": 875,
@@ -424,5 +419,9 @@
       "date": "2024-08-30T17:53:14.877Z",
       "operation": "Remove"
     }
-  ]
+  ],
+  "login": [{
+    "appUser": "admin",
+    "appPassword": "admin"
+  }]
 }

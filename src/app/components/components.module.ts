@@ -9,6 +9,7 @@ import { PopupComponent } from './popup/popup.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     DepositComponent,
     ExtractComponent,
     PopupComponent,
+    LoginComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   exports: [
@@ -27,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     DepositComponent,
     ExtractComponent,
     PopupComponent,
+    LoginComponent,
   ],
 })
 export class ComponentsModule {}
