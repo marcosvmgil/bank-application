@@ -32,12 +32,14 @@ export class LoginComponent {
       this.loginProvider.get(user).subscribe(
         (res: any) => {
           if (res.status && res.status != 200) {
+            this.loginForm.reset();
             this.popupService.showMessage('Login Error', false);
           } else if (res.message == 'Login successful') {
             localStorage.setItem('user', JSON.stringify(user));
             this.router.navigate(['']);
             this.popupService.showMessage('Login successfully!', true);
           } else {
+            this.loginForm.reset();
             this.popupService.showMessage('Login Error', false);
           }
         },
@@ -46,6 +48,7 @@ export class LoginComponent {
         }
       );
     } else {
+      this.loginForm.reset();
       this.popupService.showMessage(this.generateErrorMessage(), false);
     }
   }
