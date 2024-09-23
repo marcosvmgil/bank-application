@@ -36,4 +36,9 @@ export class HeaderComponent {
   currentRoute(path: string) {
     return this.router.url == `/${path}`;
   }
+
+  exitApp() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
+  }
 }

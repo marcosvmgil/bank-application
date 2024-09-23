@@ -5,12 +5,16 @@
       .header__navbarList {
         display: flex;
         flex-direction: row;
+
         .header__navbarListItem:first-child {
           margin-left: 20px;
         }
         .header__navbarListItem {
           margin-left: 30px;
         }
+      }
+      .header__navbarListItemRight {
+        margin-right: 20px;
       }
     }
   }

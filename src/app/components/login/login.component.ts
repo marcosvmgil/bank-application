@@ -31,13 +31,12 @@ export class LoginComponent {
       };
       this.loginProvider.get(user).subscribe(
         (res: any) => {
-          console.log(res);
           if (res.status && res.status != 200) {
-            this.popupService.showMessage('Login Error', true);
+            this.popupService.showMessage('Login Error', false);
           } else if (res.message == 'Login successful') {
             localStorage.setItem('user', JSON.stringify(user));
             this.router.navigate(['']);
-            this.popupService.showMessage('Login successfully!', false);
+            this.popupService.showMessage('Login successfully!', true);
           } else {
             this.popupService.showMessage('Login Error', false);
           }
